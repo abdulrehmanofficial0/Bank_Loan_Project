@@ -1,0 +1,221 @@
+/* --- Custom Variables --- */
+:root {
+    --primary: #00f2fe;
+    --secondary: #4facfe;
+    --bg-dark: #0f172a;
+    --glass: rgba(255, 255, 255, 0.1);
+    --text-muted: #94a3b8;
+    --success: #4ade80;
+    --danger: #f87171;
+}
+
+/* --- Base Reset --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top right, #1e293b, #0f172a);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+/* --- Background Glow --- */
+body::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: var(--secondary);
+    filter: blur(160px);
+    border-radius: 50%;
+    top: -10%;
+    left: -10%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* --- Glassmorphism Container --- */
+.glass-container {
+    background: var(--glass);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 28px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    max-width: 550px; /* Thoda wide kiya hai rows ke liye */
+    text-align: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Header Styling --- */
+.header {
+    margin-bottom: 30px;
+}
+
+.logo-icon {
+    font-size: 3.5rem;
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+h1 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+h1 span {
+    color: var(--primary);
+    font-weight: 300;
+}
+
+.header p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* --- Form Layout --- */
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.input-row {
+    display: flex;
+    gap: 15px;
+}
+
+.input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+    color: #cbd5e1;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-group label i {
+    margin-right: 5px;
+    color: var(--primary);
+}
+
+/* --- Inputs & Selects --- */
+input, select {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary);
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+}
+
+select option {
+    background: #1e293b;
+    color: white;
+}
+
+/* --- VIP Button --- */
+button {
+    margin-top: 10px;
+    padding: 16px;
+    border-radius: 14px;
+    border: none;
+    background: linear-gradient(45deg, var(--secondary), var(--primary));
+    color: #0f172a;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(79, 172, 254, 0.5);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* --- Result Cards --- */
+.result-card {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 16px;
+    display: none;
+    font-weight: 600;
+    animation: slideUp 0.5s ease-out;
+    border-left: 6px solid;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: scale(0.9) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.approved {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: var(--success);
+    color: var(--success);
+}
+
+.rejected {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+/* --- Mobile Responsive --- */
+@media (max-width: 500px) {
+    .input-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .glass-container {
+        padding: 25px;
+    }
+}

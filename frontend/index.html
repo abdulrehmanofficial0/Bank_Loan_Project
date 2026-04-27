@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Loan Predictor | VIP</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="glass-container">
+    <div class="header">
+        <i class="fas fa-university logo-icon"></i>
+        <h1>Loan<span>Pulse</span></h1>
+        <p>Advanced Credit Risk Assessment</p>
+    </div>
+
+    <form id="loanForm" class="form-grid">
+        <div class="input-row">
+            <div class="input-group">
+                <label>Gender</label>
+                <select id="gender">
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Married</label>
+                <select id="married">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-row">
+            <div class="input-group">
+                <label>Education</label>
+                <select id="education">
+                    <option value="0">Graduate</option>
+                    <option value="1">Not Graduate</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Dependents</label>
+                <select id="dependents">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3+</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label><i class="fas fa-wallet"></i> Applicant Income</label>
+            <input type="number" id="income" placeholder="e.g. 50000" required>
+        </div>
+
+        <div class="input-group">
+            <label><i class="fas fa-coins"></i> Co-Applicant Income</label>
+            <input type="number" id="co_income" placeholder="e.g. 0" required>
+        </div>
+
+        <div class="input-group">
+            <label><i class="fas fa-hand-holding-usd"></i> Loan Amount</label>
+            <input type="number" id="loan" placeholder="e.g. 150000" required>
+        </div>
+
+        <div class="input-row">
+            <div class="input-group">
+                <label>Term (Days)</label>
+                <input type="number" id="loan_term" value="360">
+            </div>
+            <div class="input-group">
+                <label>Credit History</label>
+                <select id="credit">
+                    <option value="1">Good</option>
+                    <option value="0">Bad</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" id="submitBtn">
+            <span>Verify Eligibility</span>
+            <i class="fas fa-shield-check"></i>
+        </button>
+    </form>
+
+    <div id="result" class="result-card"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
